@@ -16,7 +16,7 @@ class CaptchaValidator extends AbstractValidator
         UserRepository $userRepository,
         ConfigurationManagerInterface $configurationManager,
         EventDispatcherInterface $eventDispatcher,
-        protected readonly WordRepository $wordRepository,
+        protected readonly ?WordRepository $wordRepository,
     ) {
         parent::__construct($userRepository, $configurationManager, $eventDispatcher);
     }
@@ -29,7 +29,7 @@ class CaptchaValidator extends AbstractValidator
     protected function isValid(mixed $value): void
     {
         $this->init();
-        if ($this->captchaEnabled() && (!is_string($value) || !$this->validCaptcha($value))) {
+        if ($this->wordRepository && $this->captchaEnabled() && (!is_string($value) || !$this->validCaptcha($value))) {
             $this->addError('validationErrorCaptcha', 0, ['fieldName' => 'captcha']);
         }
     }
