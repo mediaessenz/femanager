@@ -13,10 +13,10 @@ $EM_CONF[$_EXTKEY] = [
     'author_email' => 'info@in2code.de',
     'author_company' => 'in2code.de - Wir leben TYPO3',
     'state' => 'stable',
-    'version' => '13.2.1',
+    'version' => '14.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '13.0.0-13.4.99',
+            'typo3' => '13.0.0-14.3.99',
             'php' => '8.1.0-',
         ],
         'conflicts' => [],
